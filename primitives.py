@@ -29,7 +29,7 @@ class Tensor:
                 raise ValueError(f'Can only backpropagate a scalar, got shape {self.shape}')
 
             if self.back_op is None:
-                raise ValueError(f'Cannot start backpropagation from a leaf!')
+                raise ValueError('Cannot start backpropagation from a leaf!')
 
             self.grad = np.ones((1, 1))
             if self.back_op:
