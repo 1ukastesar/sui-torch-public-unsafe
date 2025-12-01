@@ -23,11 +23,12 @@ class SignalClassifier:
     def __init__(self, signal_length, num_classes=3):
         kernel_size = 5
         conv_out_channels = 8
+        pools_per_signal = 2
 
         self.conv1 = st.Conv1DLayer(out_channels=conv_out_channels, kernel_size=kernel_size)
-        pool_size = (signal_length - kernel_size + 1) // 2
-        self.pool1 = st.MaxPool1DLayer(pool_size=pool_size, stride=1)
-        self.fc1 = LinearLayer(num_classes, conv_out_channels * pool_size)
+        pool_size = (signal_length - kernel_size + 1) // pools_per_signal
+        self.pool1 = st.MaxPool1DLayer(pool_size=pool_size, stride=pool_size)
+        self.fc1 = LinearLayer(num_classes, conv_out_channels * pools_per_signal)
 
     def forward(self, x):
         x = self.conv1.forward(x)
@@ -44,7 +45,7 @@ class SignalClassifier:
         return x
 
     def parameters(self):
-        return self.conv1.parameters() + self.fc1.parameters()# + self.fc2.parameters()
+        return self.conv1.parameters() + self.fc1.parameters()
 
 
 class StochasticGradientDescent:

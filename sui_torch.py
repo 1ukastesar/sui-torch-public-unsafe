@@ -3,7 +3,9 @@ import primitives as p
 
 
 class Conv1DLayer:
+    # Pocitejme s tim, ze stride = 1 a padding = 0.
     def __init__(self, out_channels, kernel_size):
+        self.kernels = None # Toto budou vahy konvolucni vrstvy
         raise NotImplementedError("Conv1DLayer.__init__ is not implemented")
 
     def forward(self, x):        
