@@ -8,7 +8,7 @@ class Conv1DLayer:
         self.kernels = None # Toto budou vahy konvolucni vrstvy
         raise NotImplementedError("Conv1DLayer.__init__ is not implemented")
 
-    def forward(self, x):        
+    def forward(self, x):
         raise NotImplementedError("Conv1DLayer.forward is not implemented")
 
     def parameters(self):
