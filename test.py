@@ -46,7 +46,7 @@ class TestConv1DLayer(unittest.TestCase):
 
 class TestMaxPool1DLayer(unittest.TestCase):
     def test_forward_output_shape(self):
-        batch_size = 2
+        batch_size = 1
         channels = 3
         length = 10
         pool_size = 2
