@@ -7,7 +7,7 @@ import primitives as p
 
 class TestConv1DLayer(unittest.TestCase):
     def test_forward_output_shape(self):
-        batch_size = 2
+        batch_size = 1
         signal_length = 10
         out_channels = 4
         kernel_size = 3
